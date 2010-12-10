@@ -46,5 +46,5 @@ class AboutAsserts(Koan):
         """
 
         # This throws an AssertionError exception
-        assert False
+        assert 'False'
 
