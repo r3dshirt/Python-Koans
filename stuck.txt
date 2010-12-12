@@ -1,2 +1,10 @@
+Stuck
+//////
 about_none.py:
 	line: 35
+
+
+Questions
+////////////
+about_list_assignments. py
+    line: 21
