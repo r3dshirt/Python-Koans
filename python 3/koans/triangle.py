@@ -15,16 +15,28 @@
 #   about_triangle_project.py
 # and
 #   about_triangle_project_2.py
-#
-def triangle(a, b, c):
-	if (a == b) & (a == c): 
-		return 'equilateral'
+
+def triangle(a, b, c):	
 	
-	if (a == b) | (a == c) | (b == c):
-		return 'isosceles'
-		
-	if (a != b) & (a != c) & (b != c):
-		return 'scalene'
+	# Basic rule of any triange: The sum of the lengths of any two 
+	# sides of a triangle always exceeds the length of the third side.
+	ab = a + b
+	ac = a + c
+	bc = b + c
+	try:
+		if (ab > c) & (ac > b) & (bc > a):		
+			if(a == b) & (a == c): 
+				result = 'equilateral'
+			elif (a == b) | (a == c) | (b == c):
+				result = 'isosceles'
+			else:
+				result = 'scalene'
+		else:
+			raise Exception()
+	except:
+		raise TriangleError()
+	else:
+		return result
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
