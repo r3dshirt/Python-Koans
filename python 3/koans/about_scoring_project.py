@@ -55,14 +55,6 @@ def score(dice):
     score += results[1] * 100
     score += results[5] * 50
 
-
-
-    #for die in dice:
-    #    if die == 5:
-    #        score += 50
-     #   if die == 1:
-    #        score += 100
-
     return score
 
 class AboutScoringProject(Koan):
