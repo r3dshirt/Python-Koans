@@ -87,11 +87,14 @@ class AboutWithStatements(Koan):
     # ------------------------------------------------------------------
 
     def find_line2(self, file_name):
-        # Rewrite find_line using the Context Manager.
-        pass
+        with self.FileContextManager(file_name) as file:
+            for line in file.readlines():
+                match = re.search('e', line)
+                if match:
+                    return line
 
     def test_finding_lines2(self):
-        self.assertEqual(__, self.find_line2("example_file.txt"))
+        self.assertEqual('test\n', self.find_line2("example_file.txt"))
         self.assertNotEqual(__, self.find_line2("example_file.txt"))
 
     # ------------------------------------------------------------------
@@ -104,4 +107,4 @@ class AboutWithStatements(Koan):
             return count
 
     def test_open_already_has_its_own_built_in_context_manager(self):
-        self.assertEqual(__, self.count_lines3("example_file.txt"))
+        self.assertEqual(4, self.count_lines3("example_file.txt"))
